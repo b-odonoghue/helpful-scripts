@@ -1,0 +1,10 @@
+For f in path/to/file/ ;do 
+jq --slurp --raw-input --raw-output \
+    'split("\n") | .[1:] | map(split(",")) |
+        map({"Field 1": .[0],
+        "Field 2": .[1],
+        "Field 3": .[2],
+        ...
+        "Field n": .[n]\
+f > ${f%.*}".json"
+done
